@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left" id="movie-search" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Bourne" value="Bourne">
               </div>
               <input type="submit" class="btn btn-default" value="Search">
             </form>
@@ -48,15 +48,34 @@
     </div>
 
     <script type="text/x-template" id="search-results-tmpl">
-    {{#each movies}}
-      <h1>{{Title}}</h1> - {{Year}}
-    {{/each}}
+    <div class="page-header">
+    <h1>IMDB Search Results <small>{{term}}</small></h1>
+    </div>
+    {{#if noResults}}
+        <h2>Oops, there were none!</h2>
+    {{else}}
+        {{#each movies}}
+        <h3>{{Title}} <small>{{Year}}</small></h3>
+        {{/each}}
+    {{/if}}
+    
     </script>
 
     <script type="text/x-template" id="recent-search-tmpl">
-      {{#each terms}}
-      <li>{{this}</li>
-      {{/each}}
+    <h4>Recent Searches</h4>
+    <ul class="list-group">
+    {{#each searches}}
+    <li class="list-group-item">
+    <span class="badge">{{count}}</span>
+    {{#if term}}
+        {{term}}
+    {{else}}
+        &nbsp;
+    {{/if}}
+    </li>
+    {{/each}}
+    </ul>
+      
     </script>
 
     <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
