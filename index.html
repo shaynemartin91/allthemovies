@@ -33,17 +33,15 @@
     </header>
 
     <div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-          <!--recent searches-->
-          <ul>
-          <div id="recent-searches"></div>
-          </ul>
-        </div>
-        <div class="col-sm-9">
-          <!--search results-->
-          <div id="search-results"></div>
-        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <!--recent searches-->
+                <div id="recent-searches"></div>
+            </div>
+            <div class="col-sm-9">
+                <!--search results-->
+                <div id="search-results"></div>
+            </div>
       </div>
     </div>
 
@@ -56,13 +54,24 @@
         <h2>Oops, there were none!</h2>
     {{else}}
         {{#each movies}}
-        <h3>{{Title}} <small>{{Year}}</small></h3>
+        <h3 data-id="{{imdbID}}" class="movie-results">{{Title}} <small>{{Year}}</small></h3>
         {{/each}}
     {{/if}}
     
     </script>
 
     <script type="text/x-template" id="recent-search-tmpl">
+    <h4>Recent Searches</h4>
+    <ul class="list-group" id="recent-searches-list">
+        {{#each searches}}
+        <li class="list-group-item">
+            <span class="badge">{{count}}</span>
+            {{#if term}}<a href="javascript:void(0)" class="search-link" data-search-term="{{term}}">{{term}}</a>{{else}}&nbsp;{{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    </script>
+    <script type="text/x-template" id="movie-details-tmpl">
     <h4>Recent Searches</h4>
     <ul class="list-group" id="recent-searches-list">
         {{#each searches}}
