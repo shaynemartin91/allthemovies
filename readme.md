@@ -19,3 +19,7 @@ A simple one-page app to search the IMDB via the [omdb api](http://www.omdbapi.c
     - Handle search of empty string (recent search listing would collapse with no text)
 - Adjusted style of result elements 
 - Added this readme.
+
+### Version .3
+- Recent searches are now links to bring up those results
+- Refactored server response validation to a single method. 
