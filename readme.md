@@ -1,5 +1,5 @@
 #Search All The Movies!
-A simple one-page app to search the IMDB via the (omdb api)[http://www.omdbapi.com/]
+A simple one-page app to search the IMDB via the [omdb api](http://www.omdbapi.com/).
 
 ##Changelog
 

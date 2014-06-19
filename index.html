@@ -51,6 +51,7 @@
     <div class="page-header">
     <h1>IMDB Search Results <small>{{term}}</small></h1>
     </div>
+    
     {{#if noResults}}
         <h2>Oops, there were none!</h2>
     {{else}}
@@ -63,23 +64,17 @@
 
     <script type="text/x-template" id="recent-search-tmpl">
     <h4>Recent Searches</h4>
-    <ul class="list-group">
-    {{#each searches}}
-    <li class="list-group-item">
-    <span class="badge">{{count}}</span>
-    {{#if term}}
-        {{term}}
-    {{else}}
-        &nbsp;
-    {{/if}}
-    </li>
-    {{/each}}
+    <ul class="list-group" id="recent-searches-list">
+        {{#each searches}}
+        <li class="list-group-item">
+            <span class="badge">{{count}}</span>
+            {{#if term}}<a href="javascript:void(0)" class="search-link" data-search-term="{{term}}">{{term}}</a>{{else}}&nbsp;{{/if}}
+        </li>
+        {{/each}}
     </ul>
-      
     </script>
 
-    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="./lib/handlebars.min.js"></script>
     <!--<script src="./lib/ember.min.js"></script>-->
     <script src="./lib/app.js"></script>
