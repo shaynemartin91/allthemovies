@@ -22,4 +22,5 @@ A simple one-page app to search the IMDB via the [omdb api](http://www.omdbapi.c
 
 ### Version .3
 - Recent searches are now links to bring up those results
-- Refactored server response validation to a single method. 
+- Refactored server response validation to a single method instead of sprawled out. 
+- Cached server response in localstorage to prevent dupe network calls
