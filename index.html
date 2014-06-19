@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All The Movies!</title>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">All The Movies</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" id="movie-search" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <input type="submit" class="btn btn-default" value="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <!--recent searches-->
+          <ul>
+          <div id="recent-searches"></div>
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          <!--search results-->
+          <div id="search-results"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/x-template" id="search-results-tmpl">
+    {{#each movies}}
+      <h1>{{Title}}</h1> - {{Year}}
+    {{/each}}
+    </script>
+
+    <script type="text/x-template" id="recent-search-tmpl">
+      {{#each terms}}
+      <li>{{this}</li>
+      {{/each}}
+    </script>
+
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
+    <script src="./lib/handlebars.min.js"></script>
+    <!--<script src="./lib/ember.min.js"></script>-->
+    <script src="./lib/app.js"></script>
+  </body>
+</html>
