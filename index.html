@@ -6,6 +6,10 @@
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+      <style>
+          img {max-width:100%;}
+          .movie-result:hover {cursor:pointer;}
+      </style>
   </head>
   <body>
     <header>
@@ -18,7 +22,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">All The Movies</a>
+            <a class="navbar-brand" href="#">Search All The Movies!</a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left" id="movie-search" role="search">
@@ -54,7 +58,7 @@
         <h2>Oops, there were none!</h2>
     {{else}}
         {{#each movies}}
-        <h3 data-id="{{imdbID}}" class="movie-results">{{Title}} <small>{{Year}}</small></h3>
+        <h3 data-id="{{imdbID}}" class="movie-result">{{Title}} <small>{{Year}}</small></h3>
         {{/each}}
     {{/if}}
     
@@ -72,15 +76,22 @@
     </ul>
     </script>
     <script type="text/x-template" id="movie-details-tmpl">
-    <h4>Recent Searches</h4>
-    <ul class="list-group" id="recent-searches-list">
-        {{#each searches}}
-        <li class="list-group-item">
-            <span class="badge">{{count}}</span>
-            {{#if term}}<a href="javascript:void(0)" class="search-link" data-search-term="{{term}}">{{term}}</a>{{else}}&nbsp;{{/if}}
-        </li>
-        {{/each}}
-    </ul>
+    <div class="page-header">
+        <h1>{{Title}} <small>{{Released}}</small></h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="{{Poster}}">
+        </div>
+        <div class="col-sm-8">
+            <p>{{Plot}}</p>
+            <p><strong>Written By:</strong> {{Writer}}</p>
+            <p><strong>Director:</strong> {{Director}}</p>
+            <p><strong>Genre:</strong> {{Genre}}</p>
+            <p><strong>Awards:</strong> {{Awards}}</p>
+        </div>
+    </div>
+    
     </script>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
