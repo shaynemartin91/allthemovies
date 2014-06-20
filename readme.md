@@ -28,3 +28,6 @@ A simple one-page app to search the IMDB via the [omdb api](http://www.omdbapi.c
 
 ### version .4
 - Pull movie details
+- Abstract cache to separate object
+- Refactor search result caching to use new cache object
+- Add view more button to link user to official imdb page.
